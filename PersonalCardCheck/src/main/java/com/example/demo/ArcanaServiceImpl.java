@@ -23,6 +23,18 @@ public class ArcanaServiceImpl implements ArcanaService{
 			total += Character.getNumericValue(num);
 		}
 		checkPersonalCard(total);
+		checkSoulCard(total);
+	}
+	
+	public int calcDigit(int number) {
+		int total =0;
+		int[] splitDigit = String.valueOf(number).chars().map(Character::getNumericValue).toArray();
+		
+		for(int digit:splitDigit) {
+			total += digit;
+		}
+		
+		return total;
 	}
 	
 	public void checkPersonalCard(int number) {
@@ -33,16 +45,15 @@ public class ArcanaServiceImpl implements ArcanaService{
 		
 		this.personalCard = this.Arcana[number];
 		
-		checkSoulCard(number);
 	}
 	public void checkSoulCard(int number) {
-		int[] digit = String.valueOf(number).chars().map(Character::getNumericValue).toArray();
-		int total = 0;
-		for(int dig:digit) {
-			total += dig;
-		}
+		int total = calcDigit(number);
 		
-		this.soulCard = this.Arcana[total];
+		while(total >= 10) {
+			total = calcDigit(total);
+		}
+
+		this.soulCard = this.Arcana[total];			
 	}
 	
 	@Override
