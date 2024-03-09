@@ -1,32 +1,32 @@
 package com.example.demo;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 
 @Controller
 public class PersonalCardController {
 	private ArcanaService arcanaService;
 		
-	@GetMapping("/input-birthday")
-	public ModelAndView checkPersonalCard(String birthday,ModelAndView mav) {
+	@PostMapping("/personal-card-result")
+	public String checkPersonalCard(@RequestParam("birthday") String birthday,Model model) {
 		this.arcanaService = new ArcanaServiceImpl();
 		this.arcanaService.setBirthday(birthday);
 		
 		try {	
-			String[] checkResult = this.arcanaService.getResult();
+			String personalCard = arcanaService.getPersonalCard();
+			String soulCard = arcanaService.getSoulCard();
 		
-		
-			mav.setViewName("html/personal-card-result.html");
-			mav.addObject("personal-card",checkResult[0]);
-			mav.addObject("soul-card",checkResult[1]);
+			model.addAttribute("personal-card",personalCard);
+			model.addAttribute("soul-card",soulCard);
 			
-			return mav;		
+			return "redirect:html/personal-card-result.html";		
 			
 		}catch(Exception e) {
-			mav.setViewName("html/personal-card-error.heml");
-			return mav;
+			return "html/personal-card-result.html";
 		}
 		
 	}

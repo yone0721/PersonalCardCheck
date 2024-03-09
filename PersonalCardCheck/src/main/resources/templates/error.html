@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 	<head>
-		<title></title>
+		<meta charset="UTF-8">
+		<title>エラー発生</title>
 	</head>
 	<body>
-		何かしらのエラー
+		<p th:text="${exception}"></p>
+		<p th:text="${errorMessage}"></p>
 	</body>
 </html>

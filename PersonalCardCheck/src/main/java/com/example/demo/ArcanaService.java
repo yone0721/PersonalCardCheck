@@ -5,8 +5,9 @@ public interface ArcanaService{
 	void setBirthday(String Birthday);
 	
 	String getBirhtday();
+	
+	String getSoulCard();
 
-	String[] getResult();
-
+	String getPersonalCard();
 	
 }

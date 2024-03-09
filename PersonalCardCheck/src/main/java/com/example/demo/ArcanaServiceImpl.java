@@ -5,7 +5,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class ArcanaServiceImpl implements ArcanaService{
 	private String birthday;
-	private String[] checkResult = new String[2];
+	private String personalCard;
+	private String soulCard;	
 	private String[] Arcana = {"愚者","魔術師","女教皇","女帝","皇帝",
 			"法王","恋人","戦車","正義","隠者","運命の輪","力","吊られた男",
 			"死神","節制","悪魔","塔","星","月","太陽","審判","世界"};
@@ -30,7 +31,7 @@ public class ArcanaServiceImpl implements ArcanaService{
 			number -= 22;
 		}
 		
-		this.checkResult[0] = this.Arcana[number];
+		this.personalCard = this.Arcana[number];
 		
 		checkSoulCard(number);
 	}
@@ -41,7 +42,7 @@ public class ArcanaServiceImpl implements ArcanaService{
 			total += dig;
 		}
 		
-		this.checkResult[1] = this.Arcana[total];
+		this.soulCard = this.Arcana[total];
 	}
 	
 	@Override
@@ -56,8 +57,14 @@ public class ArcanaServiceImpl implements ArcanaService{
 	}
 	
 	@Override
-	public String[] getResult(){
-		return this.checkResult;
+	public String getPersonalCard(){
+		return this.personalCard;
+		
+	}
+	@Override
+	public String getSoulCard(){
+		return this.soulCard;
+		
 	}
 	
 }
