@@ -20,10 +20,10 @@ public class PersonalCardController {
 			String personalCard = arcanaService.getPersonalCard();
 			String soulCard = arcanaService.getSoulCard();
 		
-			model.addAttribute("personal-card",personalCard);
-			model.addAttribute("soul-card",soulCard);
+			model.addAttribute("personalCard",personalCard);
+			model.addAttribute("soulCard",soulCard);
 			
-			return "redirect:html/personal-card-result.html";		
+			return "html/personal-card-result.html";		
 			
 		}catch(Exception e) {
 			return "html/personal-card-result.html";
