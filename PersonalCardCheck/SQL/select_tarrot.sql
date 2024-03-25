@@ -16,4 +16,5 @@ ON ar.arcana_no = fotune_table.arcana_no
 JOIN positions AS pos
 ON pos.position_no = fotune_table.position_no
 WHERE pos.position_no = 1 
-ORDER BY ar.arcana_no ASC;
+AND ar.arcana_no = 12;
+-- ORDER BY ar.arcana_no ASC;

@@ -211,6 +211,3 @@ INSERT INTO fotune_table VALUES(39,20,0);
 INSERT INTO fotune_table VALUES(40,20,1);
 INSERT INTO fotune_table VALUES(41,21,0);
 INSERT INTO fotune_table VALUES(42,21,1);
-
-
-
