@@ -4,6 +4,14 @@ import com.example.demo.Entity.Arcana;
 
 
 public interface ArcanaService{
+
+	void calcBirthdayNumbers();
+	
+	int calcDigit(int number);
+	
+	void checkPersonalCard(int number);
+	
+	void checkSoulCard(int number);
 	
 	void setBirthday(String Birthday);
 	
@@ -12,5 +20,4 @@ public interface ArcanaService{
 	Arcana getSoulCard();
 
 	Arcana getPersonalCard();
-	
 }

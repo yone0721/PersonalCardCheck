@@ -1,22 +1,26 @@
 package com.example.demo.Serivce;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.example.demo.Entity.Arcana;
-import com.example.demo.Repository.ArcanaRepositoryImpl;
+import com.example.demo.Repository.ArcanaRepository;
 
 @Service
 public class ArcanaServiceImpl implements ArcanaService{
 	private String birthday;
 	private Arcana personalCard;
 	private Arcana soulCard;
+	private List<Arcana> arcanaList;
 	
-	private ArcanaRepositoryImpl arcanaRepository;
+	private final ArcanaRepository arcanaRepository;
 
-//	@Autowired
-//	public ArcanaServiceImpl(ArcanaRepositoryImpl arcanaRepository) {
-//		this.arcanaRepository = arcanaRepository;
-//	}
+	public ArcanaServiceImpl(ArcanaRepository arcanaRepository) {
+		this.arcanaRepository = arcanaRepository;
+		this.arcanaList = arcanaRepository.findAll();
+		
+	}
 
 	public void calcBirthdayNumbers() {
 		int total=0;
@@ -48,8 +52,15 @@ public class ArcanaServiceImpl implements ArcanaService{
 			number -= 22;
 		}
 		
-		this.personalCard = arcanaRepository.getReferenceById(number);
+		
+		for(Arcana arcana:arcanaList) {
+			if(number == arcana.getArcanaNumber()) {
+				this.personalCard = arcana;
+				break;
+			}	
+		}
 	}
+	
 	public void checkSoulCard(int number) {
 		int total = calcDigit(number);
 		
@@ -57,14 +68,18 @@ public class ArcanaServiceImpl implements ArcanaService{
 			total = calcDigit(total);
 		}
 
-		this.soulCard = arcanaRepository.getReferenceById(total);
+		for(Arcana arcana:arcanaList) {
+			if(total == arcana.getArcanaNumber()) {
+				this.soulCard = arcana;
+				break;
+			}	
+		}
 	}
 
 	@Override
 	public void setBirthday(String Birthday) {
 		// TODO 自動生成されたメソッド・スタブ
-		this.birthday = birthday;
-		
+		this.birthday = birthday;		
 	}
 
 	@Override

@@ -6,29 +6,27 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.Entity.Arcana;
-import com.example.demo.Serivce.ArcanaService;
-
-import lombok.RequiredArgsConstructor;
+import com.example.demo.Serivce.ArcanaServiceImpl;
 
 
 @Controller
-@RequiredArgsConstructor
+//@RequiredArgsConstructor
 public class PersonalCardController {
 	
-	private final ArcanaService arcanaServiceImpl;
+	private ArcanaServiceImpl arcanaService;
 	
-//	@Autowired
-//	public PersonalCardController(ArcanaServiceImpl arcanaService) {
-//		this.arcanaServiceImpl = arcanaService;
-//	};
+	public PersonalCardController(ArcanaServiceImpl arcanaService) {
+		this.arcanaService = arcanaService;
+	};
 		
 	@PostMapping("/personal-card-result")
 	public String checkPersonalCard(@RequestParam("birthday") String birthday,Model model) {
-		this.arcanaServiceImpl.setBirthday(birthday);
+		this.arcanaService.setBirthday(birthday);
+		this.arcanaService.calcBirthdayNumbers();
 		
 		try {	
-			Arcana personalCard = arcanaServiceImpl.getPersonalCard();
-			Arcana soulCard = arcanaServiceImpl.getSoulCard();
+			Arcana personalCard = arcanaService.getPersonalCard();
+			Arcana soulCard = arcanaService.getSoulCard();
 		
 			model.addAttribute("personalCard",personalCard);
 			model.addAttribute("soulCard",soulCard);

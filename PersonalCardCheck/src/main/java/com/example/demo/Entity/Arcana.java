@@ -1,5 +1,6 @@
 package com.example.demo.Entity;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
@@ -29,5 +30,17 @@ public class Arcana {
 	@Column(value = "persona")
 	private String persona;
 	
+	public Arcana() {
+		
+	}
+	
+	@Autowired
+	public Arcana(int arcanaNo,String arcanaName,String nomalMean,String reverseMean,String persona) {
+		setArcanaNumber(arcanaNo);
+		setArcanaName(arcanaName);
+		setNomalMean(nomalMean);
+		setReverseMean(reverseMean);
+		setPersona(persona);
+	}
 	
 }
