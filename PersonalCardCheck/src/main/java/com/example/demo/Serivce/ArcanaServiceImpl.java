@@ -18,7 +18,7 @@ public class ArcanaServiceImpl implements ArcanaService{
 
 	public ArcanaServiceImpl(ArcanaRepository arcanaRepository) {
 		this.arcanaRepository = arcanaRepository;
-		this.arcanaList = arcanaRepository.findAll();
+		this.arcanaList = this.arcanaRepository.findAll();
 		
 	}
 

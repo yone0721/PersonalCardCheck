@@ -1,19 +1,20 @@
 package com.example.demo.Entity;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.Setter;
 
-@Entity
 @Getter
 @Setter
 @Table(name="arcana")
+@Entity
 public class Arcana {
+	
 	@Id
 	@Column(value = "arcana_no")
 	private int arcanaNumber;

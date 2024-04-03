@@ -10,10 +10,9 @@ import com.example.demo.Serivce.ArcanaServiceImpl;
 
 
 @Controller
-//@RequiredArgsConstructor
 public class PersonalCardController {
 	
-	private ArcanaServiceImpl arcanaService;
+	private final ArcanaServiceImpl arcanaService;
 	
 	public PersonalCardController(ArcanaServiceImpl arcanaService) {
 		this.arcanaService = arcanaService;
