@@ -77,7 +77,7 @@ public class ArcanaServiceImpl implements ArcanaService{
 	}
 
 	@Override
-	public void setBirthday(String Birthday) {
+	public void setBirthday(String birthday) {
 		// TODO 自動生成されたメソッド・スタブ
 		this.birthday = birthday;		
 	}
@@ -90,13 +90,13 @@ public class ArcanaServiceImpl implements ArcanaService{
 	@Override
 	public Arcana getPersonalCard() {
 		// TODO 自動生成されたメソッド・スタブ
-		return personalCard;
+		return this.personalCard;
 	}
 
 	@Override
 	public Arcana getSoulCard() {
 		// TODO 自動生成されたメソッド・スタブ
-		return soulCard;
+		return this.soulCard;
 	}
 
 	

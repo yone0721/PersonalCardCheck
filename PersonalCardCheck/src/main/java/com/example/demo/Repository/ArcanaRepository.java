@@ -11,7 +11,7 @@ import com.example.demo.Entity.Arcana;
 public class ArcanaRepository {
 	private final String SQL_FIND_ALL ="""
 			SELECT *
-			FROM arcana_db
+			FROM arcana
 			"""; 
 	private final NamedParameterJdbcTemplate jdbcTemplate;
 
