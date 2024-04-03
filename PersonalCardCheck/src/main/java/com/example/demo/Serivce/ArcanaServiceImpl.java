@@ -26,8 +26,11 @@ public class ArcanaServiceImpl implements ArcanaService{
 		int total=0;
 		char[] numbers = this.birthday.toCharArray();
 		
+		
 		for(char num:numbers) {
-			total += Character.getNumericValue(num);
+			if(num != '-') {
+				total += Character.getNumericValue(num);
+			}
 		}
 		
 		

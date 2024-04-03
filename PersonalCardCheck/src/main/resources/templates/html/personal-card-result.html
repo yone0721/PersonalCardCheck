@@ -5,9 +5,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<p>あなたのパーソナルカードは</p>
+	<p>あなたのパーソナルカードは <font size="10" th:text="${personalCard.getArcanaName}"></font></p>
 	<p th:text="${personalCard.getPersona}"></p>
-	<p>ソウルカードは</p>
+	<p th:text="${soulCard.getArcanaName}">ソウルカードは</p>
 	<p th:text="${soulCard.getPersona}"></p>
 </body>
 </html>
